@@ -1,4 +1,4 @@
-"""从实际 result.json 重绘八条发现曲线，并输出逐组对照表。"""
+"""根据 result.json 绘制八条发现曲线并输出对照表。"""
 import argparse
 import csv
 import json

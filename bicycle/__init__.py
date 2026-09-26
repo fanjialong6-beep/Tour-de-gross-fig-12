@@ -1,1 +1,1 @@
-"""《Tour de gross》Fig.12 的可审计复现。"""
+"""《Tour de gross》Fig. 12 复现模块。"""

@@ -1,9 +1,9 @@
-"""二元域 F_2 线性代数：加法是 XOR，不能用实数矩阵秩替代。"""
+"""使用 XOR 实现二元域 F_2 线性代数。"""
 import numpy as np
 
 
 def rref(matrix):
-    """返回行最简形及主元列；不修改输入矩阵。"""
+    """返回输入矩阵的行最简形和主元列。"""
     a = np.asarray(matrix, dtype=np.uint8).copy() % 2
     pivots = []
     for col in range(a.shape[1]):
@@ -27,7 +27,7 @@ def rank(matrix):
 
 
 def nullspace(matrix):
-    """返回零空间的一组行向量基，满足 matrix @ basis.T = 0 (mod 2)。"""
+    """返回满足 matrix @ basis.T = 0 (mod 2) 的零空间基。"""
     a, pivots = rref(matrix)
     free = [j for j in range(a.shape[1]) if j not in pivots]
     basis = np.zeros((len(free), a.shape[1]), dtype=np.uint8)
@@ -38,11 +38,7 @@ def nullspace(matrix):
 
 
 def quotient_basis(kernel_check, stabilizers):
-    """求 ker(kernel_check) / row(stabilizers) 的代表元基。
-
-    这里返回的是逻辑算符基，不追求最小重量，也不要求 X/Z 基已配对。
-    增量整数 XOR 消元只用于判断独立性，输出仍保留原始二元向量。
-    """
+    """返回 ker(kernel_check) / row(stabilizers) 的逻辑算符代表元基。"""
     pivots = {}
 
     def insert(row):

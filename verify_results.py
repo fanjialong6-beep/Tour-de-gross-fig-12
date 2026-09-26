@@ -1,4 +1,4 @@
-"""独立复核保存的每个代表元，重算轨道及 Z/X 对偶关系。"""
+"""验证保存的代表元、平移轨道和 Z/X 对偶关系。"""
 import argparse
 import json
 from pathlib import Path

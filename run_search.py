@@ -1,4 +1,4 @@
-"""命令行入口；在项目根目录运行。示例见 README.md。"""
+"""运行单个码和单个 Pauli 类型的 Fig. 12 搜索。"""
 import argparse
 from bicycle.search import run_search
 

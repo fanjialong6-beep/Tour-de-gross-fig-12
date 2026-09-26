@@ -1,4 +1,4 @@
-"""一键运行四组独立搜索、核验代表元并绘图；始终创建新的结果目录。"""
+"""运行四组搜索、验证代表元并绘制 Fig. 12。"""
 import argparse
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime

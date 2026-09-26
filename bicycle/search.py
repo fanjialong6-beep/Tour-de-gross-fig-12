@@ -1,4 +1,4 @@
-"""随机逻辑约束 + BP+OSD。所有曲线都由实际命中记录生成。"""
+"""使用随机逻辑约束和 BP+OSD 搜索目标重量逻辑算符。"""
 from collections import Counter
 from datetime import datetime, timezone
 import hashlib
@@ -24,11 +24,7 @@ def dump_json(path, obj):
 def run_search(code_name, sector, outdir, seed, max_trials=2000000,
                max_seconds=1800, patience=10, bp_method='minimum_sum',
                ms_scaling_factor=1.0, dress_logical=True, checkpoint_every=1000):
-    """论文停止规则逐重量执行；参考计数不参与搜索或停止判定。
-
-    BP 更新规则/缩放系数未在 Fig.12 图注中指定，作为显式配置记录。
-    dress_logical=True 在随机非零逻辑类代表上加随机稳定子（附录 A.8）。
-    """
+    """按目标重量执行随机逻辑约束、BP+OSD 搜索和平移类统计。"""
     code = make_code(code_name)
     outdir = Path(outdir)
     outdir.mkdir(parents=True, exist_ok=True)

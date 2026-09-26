@@ -19,7 +19,7 @@ class BBCode:
         return 2 * self.ell * self.m
 
     def index(self, block, x, y):
-        """前 ell*m 个为 L，后 ell*m 个为 R；块内 x*m+y。"""
+        """将 L/R 块和环面坐标映射到向量索引。"""
         return block * self.ell * self.m + (x % self.ell) * self.m + y % self.m
 
     def shift(self, vector, dx, dy):
@@ -27,7 +27,7 @@ class BBCode:
                        shift=(dx, dy), axis=(1, 2)).reshape(-1)
 
     def zx_dual(self, vector):
-        """X(p,q) -> Z(q^T,p^T)，转置把两个环面坐标取负。"""
+        """将 X(p,q) 映射为 Z(q^T,p^T) 对偶算符。"""
         a = vector.reshape(2, self.ell, self.m)
         return a[::-1][:, (-np.arange(self.ell)) % self.ell][:, :, (-np.arange(self.m)) % self.m].reshape(-1)
 
@@ -71,7 +71,7 @@ def make_code(name):
 
 
 def paper_pivots(code):
-    """逐项录入式 (32)、(33)，仅用于独立验证坐标和讲解；不喂给搜索。"""
+    """返回论文式 (32)、(33) 给出的四个示例逻辑算符。"""
     if code.name == 'gross':
         p = [(4,0),(5,0),(6,1),(4,2),(5,4),(6,5)]
         q = [(3,0),(4,0),(3,1),(3,2),(4,2),(3,5)]
