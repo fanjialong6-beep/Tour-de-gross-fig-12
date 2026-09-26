@@ -32,8 +32,8 @@ def plot(inputs, outdir):
                              counts_match=w['shift_unique']==target['shift_unique'] and w['all_shifts']==target['all_shifts'],
                              stopping_rule_met=w['saturated'],trials=result['trials'],
                              elapsed_seconds=round(result['elapsed_seconds'],2),seed=cfg['seed']))
-    for level in (3,12,30,274):
-        ax.axhline(level,color='#e7e7e7',lw=.9,zorder=0)
+    for level in (3, 12, 30, 274):
+        ax.axhline(level, color='0.75', lw=1.2, ls='--', zorder=0)
     ax.set_xscale('log'); ax.set_yscale('log')
     ax.set_yticks([1,3,12,30,100,274],labels=['1','3','12','30','100','274'])
     ax.set_xlabel('Count of sampled operators with the specified weight')
@@ -41,7 +41,7 @@ def plot(inputs, outdir):
     ax.set_title('Enumerating low-weight logical operators\nIndependent reproduction of Fig. 12',fontsize=14)
     if ax.get_legend_handles_labels()[0]: ax.legend(loc='lower right',fontsize=9)
     ax.text(0.01,-.17,'Curves: actual BP+OSD search. Gray levels: paper reference counts.',
-            transform=ax.transAxes,fontsize=9,color='#555555')
+        transform=ax.transAxes,fontsize=9,color='#555555')
     fig.savefig(outdir/'fig12_reproduced.png',dpi=200)
     fig.savefig(outdir/'fig12_reproduced.svg')
     plt.close(fig)
