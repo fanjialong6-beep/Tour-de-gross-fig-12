@@ -1,0 +1,29 @@
+# Python environment and cache
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.tmp
+*.log
+
+# Local research material
+docs/
+references/
+tests/
+vendor/
+阅读说明.html
+
+# Local validation and helper files
+audit_all.py
+check.cmd
+install_decoder_wheels.py
+pytest.ini
+requirements-test.txt
+
+# Keep only the final PNG under results
+results/*
+!results/main/
+results/main/*
+!results/main/figure/
+results/main/figure/*
+!results/main/figure/fig12_reproduced.png

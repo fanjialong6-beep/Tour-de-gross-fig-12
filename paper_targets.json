@@ -1,0 +1,6 @@
+{
+  "source": "https://arxiv.org/pdf/2506.03094v1, Fig.12, printed page 46",
+  "role": "仅作运行结束后的对照，不参与搜索或终止判定",
+  "gross": {"12": {"shift_unique": 30, "all_shifts": 1884}, "14": {"shift_unique": 274, "all_shifts": 19728}},
+  "two_gross": {"18": {"shift_unique": 3, "all_shifts": 336}, "20": {"shift_unique": 12, "all_shifts": 1728}}
+}
